@@ -1,0 +1,15 @@
+CREATE TABLE dbo.dimStore ( 
+    StoreKey INT IDENTITY(1,1) PRIMARY KEY,
+    StoreID NVARCHAR(50) NOT NULL,
+    StoreName NVARCHAR(255) NOT NULL,
+    StoreType NVARCHAR(50) NOT NULL,
+    Address NVARCHAR(255) NOT NULL,
+    City NVARCHAR(100) NOT NULL,
+    State NVARCHAR(50) NOT NULL,
+    Country NVARCHAR(100) NOT NULL,
+    PostalCode NVARCHAR(20) NULL,
+    PhoneNumber NVARCHAR(20) NULL,
+    SquareFootage INT NULL,
+    OpenDate DATE NOT NULL,
+    IsActive BIT NOT NULL DEFAULT 1
+);
