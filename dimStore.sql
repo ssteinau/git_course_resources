@@ -11,5 +11,7 @@ CREATE TABLE dbo.dimStore (
     PhoneNumber NVARCHAR(20) NULL,
     SquareFootage INT NULL,
     OpenDate DATE NOT NULL,
-    IsActive BIT NOT NULL DEFAULT 1
+    IsActive BIT NOT NULL DEFAULT 1,
+    RegionID INT NOT NULL,
+    FOREIGN KEY (RegionID) REFERENCES dbo.Regions(RegionID)
 );

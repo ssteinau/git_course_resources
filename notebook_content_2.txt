@@ -1,0 +1,15 @@
+from delta.tables import DeltaTable
+
+
+# Set the path to your Delta table
+delta_table_path = "Tables/dbo/customer"
+
+
+# Load the Delta table
+delta_table = DeltaTable.forPath(spark, delta_table_path)
+
+
+# Retrieve Delta table details and check if CDF is enabled
+details_df = delta_table.detail()
+#details_df.show(truncate=False)
+display(details_df)

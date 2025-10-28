@@ -1,0 +1,14 @@
+spark.sql("""
+    CREATE TABLE IF NOT EXISTS dbo.customer (
+        IDKunde INT NOT NULL,
+        Created TIMESTAMP NOT NULL,
+        Name STRING NOT NULL,
+        LastName STRING NOT NULL,
+        Company STRING,
+        Gender STRING NOT NULL,
+        CustomerGroup STRING NOT NULL,
+        SalesTeam STRING NOT NULL,
+        Email STRING NOT NULL
+    )
+    TBLPROPERTIES (delta.enableChangeDataFeed = true)
+""")
