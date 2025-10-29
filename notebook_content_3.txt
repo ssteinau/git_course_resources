@@ -1,0 +1,27 @@
+from pyspark.sql.types import StructType, StructField, IntegerType, StringType, TimestampType
+from datetime import datetime
+# Define schema for the DataFrame
+schema = StructType([
+StructField("IDKunde", IntegerType(), False),
+StructField("Created", TimestampType(), False),
+StructField("Vorname", StringType(), False),
+StructField("Nachname", StringType(), False),
+StructField("Firma", StringType(), True),
+StructField("Anrede", StringType(), False),
+StructField("Kundengruppe", StringType(), False),
+StructField("Vertriebsteam", StringType(), False),
+StructField("Email", StringType(), False)
+])
+
+# Use datetime.now() to get the current timestamp
+current_timestamp = datetime.now()
+# Sample data for two different customers
+data = [
+(100, current_timestamp, "Maria", "Müller", "M&M Cosmetics", "Frau", "bronze", "Indigo", "m.mueller03041990@gmail.com"),
+(101, current_timestamp, "Anna", "Elchert", "My Beauty Sanctuary", "Frau", "bronze", "Emerald", "anna.elchert@beautysanctuary.onmicrosoft.com")
+]
+
+# Create the PySpark DataFrame
+df_customers = spark.createDataFrame(data, schema)
+# Show the DataFrame
+df_customers.show()

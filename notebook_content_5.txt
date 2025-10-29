@@ -1,0 +1,7 @@
+#read change data feed
+changedatefeed_df = spark.read.format("delta") \
+  .option("readChangeData", True) \
+  .option("startingVersion", 0) \
+  .table('dbo.customer')
+
+display(changedatefeed_df.sort("_commit_version"))

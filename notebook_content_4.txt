@@ -1,0 +1,2 @@
+# Write the DataFrame to the Delta table
+df_customers.write.format("delta").mode("overwrite").save(delta_table_path)
